@@ -18,7 +18,7 @@ def create_etcd_client():
 	client = etcd.Client(host='192.168.174.130',port=2379)
 	
 def add_etcd_data():
-	client.write("/nodes/"+get_hostname(),get_external_ip(),ttl=30)	
+	client.write("/nodes/"+get_hostname(),get_external_ip(),ttl=90)	
 
 def get_etcd_data():
 	data=client.read('/nodes/'+get_hostname(),recursive=True, sorted=True)
